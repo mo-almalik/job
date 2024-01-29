@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const companySchema = new mongoose.Schema({
-  companyName: {
+  name: {
     type: String,
     required: true,
     unique: true,
@@ -23,21 +23,21 @@ const companySchema = new mongoose.Schema({
     required: true,
     validate: {
       validator: function (value) {
-        // Validate the number of employees format (e.g., 11-20)
+       
         const regex = /^\d+-\d+$/;
         return regex.test(value);
       },
       message: 'Invalid number of employees format. Use range like 11-20.',
     },
   },
-  companyEmail: {
+  email: {
     type: String,
     required: true,
     unique: true,
   },
-  companyHR: {
+  HR: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', // Reference to the User model
+    ref: 'User',
     required: true,
   },
 });
