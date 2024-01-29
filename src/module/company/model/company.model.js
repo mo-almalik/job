@@ -41,6 +41,7 @@ const companySchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
+
 });
 
 const Company = mongoose.model('Company', companySchema);

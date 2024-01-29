@@ -9,6 +9,7 @@ const jobSchema = new mongoose.Schema({
     type: String,
     enum: ['onsite', 'remotely', 'hybrid'],
     required: true,
+    trim:true
   },
   workingTime: {
     type: String,
@@ -35,7 +36,6 @@ const jobSchema = new mongoose.Schema({
   addedBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User', 
-    required: true,
   },
 });
 
