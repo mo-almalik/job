@@ -32,7 +32,6 @@ const updateCompay = catchError(async (req,res)=>{
     const {name,description,
         industry,address,
         numberOfEmployees,email} = req.body
-        const {id :HR} = req.user
         const {id} = req.params
     const company = await Company.findByIdAndUpdate(id,{
         name,
