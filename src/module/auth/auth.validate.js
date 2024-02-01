@@ -15,8 +15,8 @@ export const signupSchema = Joi.object({
 
 		firstName: Joi.string().required(),
 		lastName: Joi.string().required(),
-		email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] }, }).required(),
-		recoveryEmail: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] }, }).required(),
+		email: Joi.string().email().required(),
+		recoveryEmail: Joi.string().email().required(),
 		password: Joi.string().required(),
 		mobileNumber: Joi.number().required(),
 		dob: Joi.string().required()
