@@ -1,6 +1,8 @@
 import { catchError ,AppError } from "../../../utils/error.handler.js";
 import Company from "../model/company.model.js";
 import Job from "../../job/model/job.model.js";
+import Application from "../../application/model/application.model.js";
+
 
 
 /**---------------------------------
@@ -93,9 +95,25 @@ const updateCompay = catchError(async (req,res)=>{
  
  })
 
+
+   
+/**---------------------------------
+ * @desc      Get Company Application 
+ * @route     application/:id
+ * @method    GET
+ * @access    private (only loggedIn and Owner Role => HR   )  
+ * 
+ ----------------------------------*/ 
+ const getallapplicationsOneJob = catchError(async(req,res)=>{
+    const {id} = req.params
+    const applications = await Application.find({jobId:id})
+ 
+    res.json({applications})
+ })
  export{
     AddCompany,
     updateCompay,
     deleteCompany,
-    GetCompanyData
+    GetCompanyData,
+    getallapplicationsOneJob
  }

@@ -1,6 +1,6 @@
 import Application from "../model/application.model.js";
 import { catchError ,AppError } from "../../../utils/error.handler.js";
-import User from "../../user/model/user.model.js";
+
 
 /**---------------------------------
  * @desc      Add New Apply to Job
