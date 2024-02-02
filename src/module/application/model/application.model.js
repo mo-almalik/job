@@ -21,7 +21,7 @@ const applicationSchema = new mongoose.Schema({
   },
   userResume: {
     type: String, // Assuming the URL or path to the uploaded PDF on Cloudinary
-    required: true,
+    // required: true,
   },
 });
 

@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
   },
   recoveryEmail: {
     type: String,
-    required: true,
+
   },
   dob: {
     type: Date,

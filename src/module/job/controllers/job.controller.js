@@ -99,9 +99,17 @@ const DeleteJob= catchError(async(req ,res)=>{
  const GetAllJobsAndCompanyData = catchError(async(req,res)=>{
     
   
-        let data = await Company.find();
-        let jobs = await Job.find();
-        res.json({ data });
+        const data = await Company.find().select("-_id") ;
+  
+        const jobs = await Job.find().populate("addedBy").select("-addedBy")
+        
+
+        res.json({ data:{
+            "company info" :{ data,
+            "jobs": jobs
+            },
+
+        } });
 
     })
 
