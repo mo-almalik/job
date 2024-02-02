@@ -28,7 +28,7 @@ import Application from "../../application/model/application.model.js";
         email,
         HR:req.user.id
     })
-    res.json({message:"Seccsseflly register company" , company})
+    res.json({message:" register company" , company})
  })
 
 
@@ -53,7 +53,7 @@ const updateCompay = catchError(async (req,res)=>{
         email,
         HR:req.user.id
     })
-    res.json({message:"Seccsseflly updated company info" })
+    res.json({message:" updated company info" })
 })
 
 
@@ -71,7 +71,7 @@ const updateCompay = catchError(async (req,res)=>{
     const company= await Company.findById({_id :id})
     if(!company) throw new AppError("not found !" , 404)
     await Company.findByIdAndDelete({_id :id})
-    res.json({message :"deleted Seccsseflly"})
+    res.json({message :"deleted company"})
  })
 
 

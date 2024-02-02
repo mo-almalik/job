@@ -21,6 +21,7 @@ const {userTechSkills ,userSoftSkills} =req.body
         userTechSkills,
         userSoftSkills,
        
+       
 
     })
     res.json({apply})

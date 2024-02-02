@@ -131,10 +131,36 @@ const GetJobsOneCompany =catchError(async(req,res)=>{
         "Jobs":jobs
     }  });
 })
+
+/**---------------------------------
+ * @desc      Get  Job  by filter
+ * @route     jobs-filter?
+ * @method    GET
+ * @access    public (only loggedIn and Role => HR or USER )   
+ * 
+ ----------------------------------*/ 
+const jobFilter = catchError(async(req,res)=>{
+
+    const { workingTime, jobLocation, seniorityLevel, jobTitle, technicalSkills } = req.query;
+    let filters = {};
+
+   
+    if (workingTime) filters.workingTime = workingTime;
+    if (jobLocation) filters.jobLocation = jobLocation;
+    if (seniorityLevel) filters.seniorityLevel = seniorityLevel;
+    if (jobTitle) filters.jobTitle = new RegExp(jobTitle, 'i'); 
+    if (technicalSkills) filters.technicalSkills = { $all: technicalSkills.split(',') };
+
+    const jobs = await Job.find(filters);
+    res.json({ jobs });
+
+
+})
 export{
     AddJob,
     updateJob,
     DeleteJob,
     GetAllJobsAndCompanyData,
-    GetJobsOneCompany
+    GetJobsOneCompany,
+    jobFilter
 }
